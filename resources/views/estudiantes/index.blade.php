@@ -7,8 +7,8 @@
         </div>
     @endif
 
-    <h1>Listado de Grupos</h1>
-    <form action="{{ route('grupos.index') }}" method="GET">
+    <h1>Listado de Estudiantes</h1>
+    <form action="{{ route('estudiantes.index') }}" method="GET">
         @csrf
         <div class="row">
             <div class="col-md-4">
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-4">
                 <button type="submit" class="btn btn-primary m-2">Buscar</button> &nbsp;
-                <a href="{{ route('grupos.create') }}" class="btn btn-success">Nuevo grupo</a>
+                <a href="{{ route('estudiantes.create') }}" class="btn btn-success">Nuevo estudiante</a>
             </div>
         </div>
     </form>
@@ -27,20 +27,21 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Acciones</th>
+                <th>Apellido</th>
+                <th>Correo Electronico</th>
             </tr>
         </thead>
 
         <tbody>
-            @foreach ($grupos as $item)
+            @foreach ($estudiantes as $item)
                 <tr>
                     <td>{{ $item->nombre }}</td>
-                    <td>{{ $item->descripcion }}</td>
+                    <td>{{ $item->apellido }}</td>
+                    <td>{{ $item->email }}</td>
                     <td>
-                        <a href="{{ route('grupos.show', $item->id) }}" class="btn btn-outline-secondary">Ver</a>
-                        <a href="{{ route('grupos.edit', $item->id )}}" class="btn btn-outline-info">Editar</a>
-                       <a href="{{ route('grupos.delete', $item->id )}}" class="btn btn-outline-danger">Eliminar</a>
+                        <a href="{{ route('estudiantes.show', $item->id) }}" class="btn btn-outline-secondary p-2 mx-2">Ver</a>
+                        <a href="{{ route('estudiantes.edit', $item->id )}}" class="btn btn-outline-info p-2 mx-2">Editar</a>
+                       <a href="{{ route('estudiantes.delete', $item->id )}}" class="btn btn-outline-danger p-2 mx-2">Eliminar</a>
                     </td>
                 </tr>
             @endforeach
@@ -48,7 +49,7 @@
     </table>
     <div class="row">
         <div class="col-md-12">
-            {{ $grupos->links() }}
+            {{ $estudiantes->links() }}
         </div>
     </div>
 @endsection

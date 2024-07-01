@@ -106,6 +106,7 @@ class DocenteGrupoController extends Controller
         }
         return view('docentes_grupos.delete', compact('docenteGrupo'));
     }
+
     /**
      * Remove the specified resource from storage.
      */

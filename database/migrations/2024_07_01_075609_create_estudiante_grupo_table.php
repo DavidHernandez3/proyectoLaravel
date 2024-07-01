@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('docente', function (Blueprint $table) {
+        Schema::create('estudiante_grupo', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 255)->nullable(false);
-            $table->string('apellido', 255)->nullable(false);
-            $table->string('email', 255)->unique()->nullable(false);
-            $table->string('password', 255)->nullable(false);
+            $table->integer('estudiante_id')->unsigned();
+            $table->integer('grupo_id')->unsigned();
+            $table->foreign('estudiante_id')->references('id')->on('estudiante');
+            $table->foreign('grupo_id')->references('id')->on('grupo');
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('docente');
+        Schema::dropIfExists('estudiante_grupo');
     }
 };

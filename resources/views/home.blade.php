@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="alert alert-success" role="alert">
-        ¡Bienvenido a mi sitio web!
+        ¡Bienvenidos a mi aplicación - PHP y Laravel!
     </div>
 @endsection

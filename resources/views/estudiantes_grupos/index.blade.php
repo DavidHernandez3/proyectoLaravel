@@ -9,15 +9,15 @@
     @endif
     <h1>Lista de docentes grupos</h1>
 
-    <form action="{{ route('docentes_grupos.index') }}" method="GET">
+    <form action="{{ route('estudiantes_grupos.index') }}" method="GET">
         @csrf
         <div class="row">
             <div class="col-sm-4">
-                <label for="docente_id" class="form-label">Docente</label>
+                <label for="docente_id" class="form-label">Estudiante</label>
                 <select name="docente_id" class="form-control">
-                    <option value="">Seleccione un docente</option>
-                    @foreach ($docentes as $docente)
-                        <option value="{{ $docente->id }}">{{ $docente->nombre }} {{ $docente->apellido }}</option>
+                    <option value="">Seleccione un estudiante</option>
+                    @foreach ($estudiantes as $estudiante)
+                        <option value="{{ $estudiante->id }}">{{ $estudiante->nombre }} {{ $estudiante->apellido }}</option>
                     @endforeach
                 </select>
             </div>
@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <button type="submit" class="btn btn-primary">Buscar</button>
-                <a href="{{ route('docentes_grupos.create') }}" class="btn btn-success">Ir a crear</a>
+                <a href="{{ route('estudiantes_grupos.create') }}" class="btn btn-success">Ir a crear</a>
             </div>
 
         </div>
@@ -35,26 +35,26 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Docente</th>
+                <th>Estudiante</th>
                 <th>Grupo</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($docentesGrupos as $docenteGrupo)
+            @foreach ($estudiantesGrupos as $estudianteGrupo)
                 <tr>
-                    <td>{{ $docenteGrupo->docente->nombre }} {{ $docenteGrupo->docente->apellido }}</td>
-                    <td>{{ $docenteGrupo->grupo->nombre }}</td>
+                    <td>{{ $estudianteGrupo->estudiante->nombre }} {{ $estudianteGrupo->estudiante->apellido }}</td>
+                    <td>{{ $estudianteGrupo->grupo->nombre }}</td>
                     <td>
                         <table>
                             <td>
-                                <a href="{{ route('docentes_grupos.edit', $docenteGrupo->id) }}" class="btn btn-warning">Editar</a>
+                                <a href="{{ route('estudiantes_grupos.edit', $estudianteGrupo->id) }}" class="btn btn-warning">Editar</a>
                             </td>
                             <td>
-                                <a href="{{ route('docentes_grupos.show', $docenteGrupo->id) }}" class="btn btn-info">Ver</a>
+                                <a href="{{ route('estudiantes_grupos.show', $estudianteGrupo->id) }}" class="btn btn-info">Ver</a>
                             </td>
                             <td>
-                                <a href="{{ route('docentes_grupos.delete', $docenteGrupo->id) }}" class="btn btn-danger">Eliminar</a>
+                                <a href="{{ route('estudiantes_grupos.delete', $estudianteGrupo->id) }}" class="btn btn-danger">Eliminar</a>
                             </td>
                         </table>
 
@@ -65,7 +65,7 @@
     </table>
     <div class="row">
         <div class="col-sm-12">
-            {{ $docentesGrupos->links() }}
+            {{ $estudiantesGrupos->links() }}
         </div>
     </div>
 @endsection

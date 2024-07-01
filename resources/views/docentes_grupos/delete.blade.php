@@ -21,7 +21,7 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Eliminar</button>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
                 <a href="{{ route('docentes_grupos.index') }}" class="btn btn-secondary">Cancelar</a>
             </div>
         </div>
